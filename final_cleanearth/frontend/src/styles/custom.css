@@ -1,0 +1,369 @@
+/* Enhanced Environmental Theme for CleanEarth Project */
+
+/* Custom Color Palette */
+:root {
+  /* Primary colors - Vibrant green shades */
+  --eco-green-dark: #1a6139;
+  --eco-green: #27ae60;
+  --eco-green-light: #88d498;
+  
+  /* Earth tones */
+  --earth-soil: #5d4037;
+  --earth-sand: #e0c9a6;
+  
+  /* Water colors */
+  --ocean-blue: #0077b6;
+  --ocean-light: #90e0ef;
+  
+  /* Plant colors */
+  --leaf-green: #3bb143;
+  --forest-green: #014421;
+  
+  /* Sky colors */
+  --clear-sky: #caf0f8;
+  --sunset: #ff9e7d;
+  
+  /* Neutral colors */
+  --clean-white: #f9f9f9;
+  --soft-grey: #e0e0e0;
+}
+
+/* Animation Effects */
+@keyframes pulse-green {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(39, 174, 96, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced Card Styles */
+.eco-card {
+  background-color: var(--clean-white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 1.8rem;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.eco-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(39, 174, 96, 0.15);
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--eco-green), var(--leaf-green), var(--eco-green-light));
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Action Cards */
+.action-card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, var(--clean-white), var(--soft-grey));
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.action-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(39, 174, 96, 0.12);
+  animation: pulse-green 1.5s infinite;
+}
+
+.action-card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--eco-green);
+  transition: all 0.3s ease;
+}
+
+.action-card:hover .action-card-icon {
+  color: var(--eco-green-dark);
+  transform: scale(1.1);
+  animation: float 2s ease infinite;
+}
+
+.action-card h3 {
+  color: var(--eco-green-dark);
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.action-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Enhanced Buttons */
+.eco-btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.eco-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  transition: width 0.5s ease;
+}
+
+.eco-btn:hover::before {
+  width: 100%;
+}
+
+.eco-btn-primary {
+  background: linear-gradient(135deg, var(--eco-green), var(--forest-green));
+  color: white;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.eco-btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+  transform: translateY(-2px);
+}
+
+.eco-btn-secondary {
+  background: transparent;
+  color: var(--eco-green-dark);
+  border: 2px solid var(--eco-green);
+}
+
+.eco-btn-secondary:hover {
+  background-color: var(--eco-green-light);
+  color: var(--eco-green-dark);
+  transform: translateY(-2px);
+}
+
+/* Status Indicators */
+.status-badge {
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-pending {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #e6a200;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-completed {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: var(--eco-green-dark);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+/* Custom Inputs */
+.eco-input {
+  border: 2px solid var(--soft-grey);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.eco-input:focus {
+  border-color: var(--eco-green);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.eco-input-group {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.eco-input-group .eco-input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.eco-input-group .eco-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Enhanced Navigation */
+.eco-nav {
+  background: linear-gradient(180deg, var(--eco-green-dark), var(--forest-green));
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.eco-nav-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.eco-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.eco-nav-item.active {
+  background-color: var(--clean-white);
+  color: var(--eco-green-dark);
+  position: relative;
+}
+
+.eco-nav-item.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-right-color: var(--clean-white);
+}
+
+.eco-nav-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Main Content Area */
+.eco-main {
+  background-color: var(--clear-sky);
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Statistics Cards */
+.stat-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.stat-green {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: var(--eco-green);
+}
+
+.stat-blue {
+  background-color: rgba(0, 119, 182, 0.15);
+  color: var(--ocean-blue);
+}
+
+.stat-content h4 {
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .eco-main {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Ensure full width on all devices */
+body, html, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}

@@ -1,0 +1,90 @@
+/* CleanEarth Custom Styling with Environmental Color Palette */
+:root {
+  --primary-green: #2e8b57;
+  --secondary-green: #3cb371;
+  --light-green: #98fb98;
+  --accent-green: #00a86b;
+  --dark-green: #006400;
+  --earth-brown: #8b4513;
+  --light-brown: #deb887;
+  --sky-blue: #87ceeb;
+  --water-blue: #4682b4;
+  --light-beige: #f5f5dc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+}
+
+/* Card Styling */
+.feature-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-green), var(--accent-green));
+}
+
+/* Button Styling */
+.eco-button {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(46, 139, 87, 0.25);
+}
+
+.eco-button:hover {
+  background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+  box-shadow: 0 6px 16px rgba(46, 139, 87, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Section Styling */
+.section-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 50px;
+  background: linear-gradient(to right, var(--primary-green), var(--light-green));
+}
